@@ -1,0 +1,1 @@
+my_vpc_name = "vtmm-vpc"
