@@ -77,12 +77,19 @@ locals {
     "redhat"         = "ami-0b748249d064044e8"
     "amazon-linux-2" = "ami-0aa097a5c0d31430a"
   }
+
+  ssh_username = {
+    "ami-01811d4912b4ccb26" = "ubuntu"
+    "ami-0b748249d064044e8" = "redhat"
+    "ami-0aa097a5c0d31430a" = "ec2-user"
+  }
+
   selected_ami = lookup(local.os_to_ami, var.Operating_System, "whoami?")
 }
 
 
 output "ssh_command" {
-  value = "ssh -i ${local_file.private_key.filename} ${local.ssh_username}@${aws_eip.public_eip.public_ip}"
+  value = "ssh -i ${local_file.private_key.filename} ${lookup(local.ssh_username, local.selected_ami)}@${aws_eip.public_eip.public_ip}"
 }
 
 resource "aws_eip" "public_eip" {

@@ -3,5 +3,4 @@ locals {
   any_protocol = "-1"
   any_where    = "0.0.0.0/0"
   ssh          = "22"
-  ssh_username = "ubuntu"
 }
