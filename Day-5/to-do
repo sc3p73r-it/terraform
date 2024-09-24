@@ -1,7 +1,0 @@
-- ssh keypair (tls provider)
-- private key (store in local)
-- public key (use it to create EC2)
-- Create EC2
-- Allocate ElasticIP
-- Associate EC2 with ElasticIP
-  
